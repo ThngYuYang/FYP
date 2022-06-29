@@ -1,0 +1,62 @@
+﻿@using System.Data
+@model DataTable
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <title>BookWorm Queries</title>
+</head>
+<body>
+    <div class="container">
+        <form method="post" action="/BookWorm/Submit">
+
+            <h2>The Bookworm Queries</h2>
+            <div class="row">
+                <div class="col-sm-8">
+                    <select name="Question" id="Question" class="form-control"
+                            onchange="this.form.submit();">
+                        <option selected="selected" value="">-- Select a Question --</option>
+                        <option value="1">What are the non-English titles?</option>
+                        <option value="2">Which titles are out of stock?</option>
+                        <option value="3">How many titles are there for each publisher?</option>
+                        <option value="4">What are the titles that have more than one language?</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-1">
+                    @(ViewData["Message"] != null ? ViewData["Message"] : "")
+                    &nbsp;
+                </div>
+            </div>
+
+            @if (Model != null)
+            {
+                <table class='table table-striped table-bordered'>
+                    <tr>
+                        @for (int col = 0; col < Model.Columns.Count; col++)
+                        {
+                            <th>@Model.Columns[col]</th>
+                        }
+                    </tr>
+
+                    @for (int row = 0; row < Model.Rows.Count; row++)
+                    {
+                        <tr>
+                            @for (int col = 0; col < Model.Columns.Count; col++)
+                            {
+                                <td>@Model.Rows[row][col]</td>
+                            }
+                        </tr>
+                    }
+                </table>
+            }
+
+
+        </form>
+    </div>
+</body>
+</html>
+<!--20031509 Thng Yu Yang-->

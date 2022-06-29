@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SayHello5</title>
+</head>
+<body>
+    <form method="post" action="/Demo/SayHello5_Post">
+        @ViewData["Greeting"]
+        <hr />
+        <label for="male">Gender : </label>
+        <input type="radio" id="male" name="Gender" value="Mr" />Mr
+        <input type="radio" id="female" name="Gender" value="Ms" />Ms
+        <br />
+        <label for="Name">Name : </label>
+        <input type="text" name="Name" id="Name" />
+        <br />
+        <label for="mem">Membership :</label>
+        <select name="membership" id="mem">
+            <option value="">-- SELECT --</option>
+            <option value="Silver">Silver</option>
+            <option value="Gold">Gold</option>
+            <option value="Platinum">Platinum</option>
+        </select>
+        <br />
+        <label for="smoke">
+            <input type="checkbox" name="Smoke" id="smoke" value="Smoking" />
+            Smoking
+        </label>
+        <br />
+        <input type="submit" id="ok" value="Hi" />
+
+        @if (ViewData["Message"] != null)
+        {
+            <hr />
+            @ViewData["Message"]
+        }
+    </form>
+
+</body>
+</html>
+<!-- 20031509 Thng Yu Yang -->

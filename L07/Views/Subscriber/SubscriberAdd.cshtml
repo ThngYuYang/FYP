@@ -1,0 +1,97 @@
+﻿@model Subscriber
+@{
+    ViewData["Title"] = "SubscriberAdd";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Be Social - Subscriber Add</title>
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    @await Html.PartialAsync("SocNavBar")
+
+    <div class="container">
+        <form method="post"
+              action="/Subscriber/SubscriberAddPost">
+
+            <div class="form-group row">
+                <div class="offset-sm-2 col-sm-4">
+                    <h2>New Subscriber</h2>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="username" class="control-label col-sm-3">Username: </label>
+                <div class="col-sm-4">
+                    <input type="text" id="username" name="username" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="firstname" class="control-label col-sm-3">First Name: </label>
+                <div class="col-sm-5">
+                    <input type="text" id="firstname" name="firstname" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="familyname" class="control-label col-sm-3">Family Name: </label>
+                <div class="col-sm-5">
+                    <input type="text" id="familyname" name="familyname" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="dob" class="control-label col-sm-3">Date of Birth: </label>
+                <div class="col-sm-5">
+                    <input type="text" id="dob" name="dob" class="form-control" placeholder="YYYY-MM-DD" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="settings" class="control-label col-sm-3">Settings:</label>
+                <div class="col-sm-5">
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input"
+                               id="publicprofileflag" name="public_profile_flag" value="public_profile_flag" />
+                        <label class="form-check-label" for="public_profile_flag">Public Profile</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input"
+                               id="autoacceptfriendsflag" name="auto_accept_friends_flag" value="auto_accept_friends_flag" />
+                        <label class="form-check-label" for="news">Auto-accept Friends</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input"
+                               id="broadcastpostsflag" name="broadcast_posts_flag" value="broadcast_posts_flag" />
+                        <label class="form-check-label" for="offers">Broadcast Posts</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="offset-sm-2 col-sm-4">
+                    <input type="submit" class="btn btn-primary" value="Create" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-4 offset-sm-2">
+                    @if (ViewData["Message"] != null)
+                    {
+                        <div class="alert alert-warning">
+                            <text>@ViewData["Message"]</text>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
+@*Thng Yu Yang 20031509*@

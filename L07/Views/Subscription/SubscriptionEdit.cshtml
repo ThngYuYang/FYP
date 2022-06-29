@@ -1,0 +1,96 @@
+﻿@model Subscription
+@{
+   ViewData["Title"] = "SubcriptionEdit";
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <title>Be Social - Subscription Edit</title>
+   <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+   <script src="~/lib/jquery/jquery.min.js"></script>
+   <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+   @await Html.PartialAsync("SocNavBar")
+
+   <div class="container">
+      <form method="post"
+            action="/Subscription/SubscriptionEditPost">
+
+         <div class="form-group row">
+            <div class="offset-sm-3 col-sm-9">
+               <h2>Edit Subscription</h2>
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label for="subscriptionid" class="control-label col-sm-3">Subscription ID :</label>
+            <div class="col-sm-5">
+               <input type="text" id="subid" name="subscriptionId" class="form-control"
+                      value="@Model.SubscriptionId" readonly />
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label class="control-label col-sm-3" for="prov">Provider  :</label>
+            <div class="col-sm-6">
+               <select class="form-control dropdown" name="providerId" id="prov">
+                  <option class="col-sm-3" value="">-- SELECT --</option>
+                  @foreach (DataRow row in (DataRowCollection)ViewData["Providers"])
+                  {
+                     <option value="@row["provider_id"]"
+                             selected="@(row["provider_id"].Equals(@Model.ProviderId))">
+                        @row["name"]
+                     </option>
+                  }
+               </select>
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label class="control-label col-sm-3" for="subr">Subscriber :</label>
+            <div class="col-sm-6">
+               <select class="form-control dropdown" name="subscriberId" id="subr">
+                  <option class="col-sm-3" value="">-- SELECT --</option>
+                  @foreach (DataRow row in (DataRowCollection)ViewData["Subscribers"])
+                  {
+                     <option value="@row["subscriber_id"]"
+                             selected="@(row["subscriber_id"].Equals(@Model.SubscriberId))">
+                        @row["family_name"] @row["first_name"] (@row["username"])
+                     </option>
+                  }
+               </select>
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label for="ds" class="control-label col-sm-3">Date Subscribed : </label>
+            <div class="col-sm-3">
+               <input type="text" id="ds" name="dateSubscribed" class="form-control"
+                      placeholder="YYYY-MM-DD"
+                      value="@String.Format("{0:yyyy-MM-dd}",Model.DateSubscribed)" />
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <div class="offset-sm-3 col-sm-8">
+               <input type="submit" class="btn btn-light" value="Update" />
+            </div>
+         </div>
+
+
+         @if (ViewData["Message"] != null)
+         {
+            <div class="form-group row">
+               <div class="offset-sm-3 col-sm-6">
+                  <div class="alert alert-@ViewData["MsgType"]">
+                     @ViewData["Message"]
+                  </div>
+               </div>
+            </div>
+         }
+
+      </form>
+   </div>
+</body>
+</html>

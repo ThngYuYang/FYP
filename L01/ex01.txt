@@ -1,0 +1,18 @@
+﻿    Heading 1
+    HTML documents are made up by HTML elements.
+
+    Heading 2
+    HTML elements are written with a start tag, 
+       with an end tag, with the content 
+       in between.
+
+    Heading 3
+    The HTML element is everything from the 
+       start tag to the end tag.
+
+    Heading 4
+    Some elements have no end tag because 
+       they have no content.
+
+
+

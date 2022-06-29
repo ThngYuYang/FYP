@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <meta name="viewport" content="width=device-width" />
+   <title>Demo - Hidden and Readonly Text Fields</title>
+</head>
+<body>
+   <form method="post" action="/Demo/TextFieldsPost">
+      <h2>Demo Text Fields</h2>
+
+      <div>
+         <label for="text1">Normal :</label>
+         <input type="text" name="text1" id="text1" value="Pizza" />
+      </div>
+
+      <div>
+         <label for="text2">Hidden :</label>
+         <input type="text" name="text2" id="text2" value="Apple" hidden />
+      </div>
+
+      <div>
+         <label for="text3">Readonly :</label>
+         <input type="text" name="text3" id="text3" value="Pineapple" readonly/>
+      </div>
+
+      <div>
+         <input type="submit" value="Submit" />
+      </div>
+
+   </form>
+
+</body>
+</html>

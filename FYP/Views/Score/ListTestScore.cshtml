@@ -1,0 +1,78 @@
+﻿@model List<Score>
+
+@section MoreScripts {
+   <link href="~/lib/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+   <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+
+   @{
+      // TODO: L13 Task 04 - Use JQuery DataTable to make the movie table responsive
+   }
+
+     <script>
+        $(document).ready(function () {
+            $('#jsScoreTable').DataTable({
+                paging: true,
+                ordering: true,
+                searching: true,
+                info: true,
+                lengthMenu: [[6, 10, 20, -1], [6, 10, 20, "All"]]
+            });
+        });
+    </script>
+
+}
+
+<h2>Test Scores</h2>
+
+@if (TempData["Message"] != null)
+{
+   <div class="alert alert-@TempData["MsgType"]">
+      @TempData["Message"]
+   </div>
+}
+
+<table id="jsScoreTable" class="table">
+   <thead>
+      <tr>
+         <th scope="col">ID</th>
+         <th scope="col">Student Name</th>
+         <th scope="col">Test Score</th>
+
+         @if (User.IsInRole("manager"))
+         {
+              <th scope="col">Operation</th>
+         }
+      </tr>
+   </thead>
+   <tbody>
+      @foreach (Score sc in Model)
+      {
+      <tr>
+         <td>@sc.Id</td>
+         <td>@sc.StudentName</td>
+         <td>@sc.TestScore</td>
+
+         @{
+            // TODO: L13 Task 05b - Show "Edit | Delete" if user is MANAGER   
+         }
+         @if (User.IsInRole("manager"))
+         {
+             <td>
+                 <a asp-controller="Movie" asp-action="EditMovie"
+                    asp-route-id="@sc.Id">Edit</a>
+                 |
+                 <a asp-controller="Movie" asp-action="DeleteMovie"
+                    asp-route-id="@sc.Id"
+                    onclick="return confirm('Are you sure you want to delete the record for @sc.StudentName?')">
+                     Delete
+                 </a>
+             </td>
+             }
+
+      </tr>
+      }
+   </tbody>
+</table>
+
+
+

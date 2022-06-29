@@ -1,0 +1,61 @@
+@model DataRowCollection
+<!DOCTYPE html>
+<html>
+<head>
+   <meta name="viewport" content="width=device-width" />
+   <title>Organic Fruits - Products</title>
+   <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+   <script src="~/lib/jquery/jquery.min.js"></script>
+   <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+   <link href="~/lib/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+   <link href="~/lib/font-awesome/css/brands.min.css" rel="stylesheet" />
+   <link href="~/lib/font-awesome/css/solid.min.css" rel="stylesheet" />
+</head>
+<body>
+
+   @await Html.PartialAsync("OrgNavBar")
+
+   <div class="container">
+
+      @if (TempData["Message"] != null)
+      {
+         <div class="alert alert-@TempData["MsgType"]">
+            @TempData["Message"]
+         </div>
+      }
+
+      <table class='table table-condensed table-striped'>
+         <tr>
+            <th>Product Code</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Weight</th>
+            <th>Country</th>
+            <th>Action</th>
+         </tr>
+
+         @foreach (DataRow row in Model)
+         {
+            <tr>
+               <td>@row["OrgCode"]</td> <td>@row["OrgDesc"]</td>
+               <td>@String.Format("{0:C}", row["Price"])</td>
+               <td>@String.Format("{0} gms", row["Gram"])</td>
+               <td>@row["Country"]</td>
+               <td>
+                  <a href="/Organic/ProductEdit/@row["OrgCode"]">
+                     <i class="fas fa-pencil-alt"></i>
+                  </a> |
+                  <a href="/Organic/ProductDelete/@row["OrgCode"]"
+                     onclick="return confirm('Delete Product [@row["OrgDesc"]]')">
+                     <i class="fas fa-trash-alt"></i>
+                  </a>
+               </td>
+            </tr>
+         }
+
+      </table>
+
+   </div>
+
+</body>
+</html>

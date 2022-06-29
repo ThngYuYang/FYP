@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <meta name="viewport" content="width=device-width" />
+   <title>Demo NavBar</title>
+   <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+   <script src="~/lib/jquery/jquery.min.js"></script>
+   <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+   <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <a class="navbar-brand" href="/Cntr/Index">Company Brand</a>
+
+      <!-- Hamburger Menu -->
+      <button class="navbar-toggler" type="button"
+              data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a href="/Cntr/Item1" class="nav-link">Menu A</a></li>
+            <li class="nav-item"><a href="/Cntr/Item2" class="nav-link">Menu B</a></li>
+
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" role="button" href="#"
+                  id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  DropDown Menu C
+               </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/CntrB/Item1">Item 1</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/CntrB/Item2">Item 2</a>
+                  <a class="dropdown-item" href="/CntrB/Item3">Item 3</a>
+               </div>
+            </li>
+
+            <li class="nav-item"><a href="/Cntr/Item3" class="nav-link">Menu D</a></li>
+         </ul>
+      </div>
+   </nav>
+</body>
+</html>

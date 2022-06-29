@@ -1,0 +1,63 @@
+@model Poll;
+
+@{
+// TODO: L12 Task 4 - Fill in the blanks using @Model.ChoiceA, @Model.ChoiceB, @Model.CountA,@Model.CountB, 
+}
+
+@section MoreScripts {
+<script language="javascript">
+      $(document).ready(
+         function () {
+            var mychart = new Chart(document.getElementById("chart"), {
+               type: 'doughnut',
+               data: {
+                  labels: ['@Model.ChoiceA', '@Model.ChoiceB'],
+                  datasets: [{
+                       label: 'Votes',
+                       backgroundColor: ["cyan", "pink"],
+                       data: [@Model.CountA, @Model.CountB]
+                  }]
+               },
+               options: {
+                  responsive: false,
+                  plugins: {
+                     labels: {
+                        render: 'value',
+                        fontSize: 32,
+                        fontStyle: 'bold',
+                      },
+                      legend: {
+                          position: 'bottom'
+                      }
+                  }
+               }
+            });
+
+            $.ajaxSetup({ cache: false });
+            setInterval(
+               function () {
+                  $.getJSON(
+                     "/Opinion/GetOutcome/@Model.PollGUID",
+                     function (data) {
+                        mychart.data.datasets[0].data = data;
+                        mychart.update();
+                     }
+                  );
+               },
+               2000
+            );
+
+         }
+      );
+
+</script>
+
+}
+<h1>@Model.Question</h1>
+<canvas id="chart" width="600" height="450"></canvas>
+@*Thng Yu Yang 20031509*@
+
+
+
+
+

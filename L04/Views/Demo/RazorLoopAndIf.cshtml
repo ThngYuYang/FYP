@@ -1,0 +1,55 @@
+﻿@using L04.Models
+@model List<Candidate>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <title>Razor Control Structures</title>
+</head>
+<body>
+    <div>&nbsp;</div>
+
+    <div class="container">
+
+        <table class='table'>
+            <tr>
+                <th>#</th>
+                <th>RegNo</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Clearance</th>
+            </tr>
+
+            @{
+                var sno = 1;
+            }
+
+            @foreach (var c in Model)
+            {
+                var highlight = "";
+                if (c.RegNo % 2 != 0)
+                {
+                    highlight = "table-warning";
+                }
+                var image = c.Gender.Equals("M") ? "Man" : "Woman";
+
+                <tr class="@highlight">
+
+                    <td>@(sno++)</td>
+
+                    <td>@c.RegNo</td>
+                    <td>@c.Name</td>
+
+                    <td>@image</td>
+
+                    <td>@(c.Clearance?"Cleared":"")</td>
+                </tr>
+            }
+        </table>
+
+    </div>
+</body>
+</html>
+<!--20031509 Thng Yu Yang-->

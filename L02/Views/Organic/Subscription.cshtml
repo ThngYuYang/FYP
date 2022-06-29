@@ -1,0 +1,69 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Organic Fruits - Subscription</title>
+    <link href="~/styles/organic.css" rel="stylesheet" />
+</head>
+<body>
+    <form method="post" action="/Organic/Confirmation">
+        <h2>Newsletter Subscription</h2>
+        <div>
+            <label for="name" class="control-label">Your name : </label>
+            <input type="text" id="name" name="Name" />
+        </div>
+
+        <div>
+            <label for="email" class="control-label">Your email address : </label>
+            <input type="text" id="email" name="Email" />
+        </div>
+
+        <div>
+            <label class="control-label">Your gender : </label>
+            <label for="male">
+                <input type="radio" id="male" name="Gender" value="Male" />Male
+            </label>
+            <label for="female">
+                <input type="radio" id="female" name="Gender" value="Female" />Female
+            </label>
+        </div>
+
+        <div>
+            <label class="control-label">Your interest :</label>
+            <label for="recipe">
+                <input type="checkbox" id="recipe" name="Recipe" value="Recipe" />Recipes
+            </label>
+            <label for="news">
+                <input type="checkbox" id="news" name="News" value="News" />News
+            </label>
+            <label for="offers">
+                <input type="checkbox" id="offers" name="Offers" value="Offers" />Offers
+            </label>
+        </div>
+
+        <div>
+            <label for="refer" class="control-label">Where did you hear about us ? </label>
+            <select id="refer" name="Refer">
+                <option value="">-- Select One --</option>
+                <option value="Friend">Friend</option>
+                <option value="Magazine">Magazine</option>
+                <option value="Newspaper">Newspaper</option>
+                <option value="Radio">Radio</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="comments" class="control-label">Any additional comments ? </label>
+            <textarea id="comments" name="Comments" cols="35" rows="4"></textarea>
+        </div>
+
+
+
+        <div>
+            <input type="submit" id="subscribe" value="Subscribe" />
+        </div>
+    </form>
+    <a href="~/Organic/Index">Back to Main</a>
+</body>
+</html>
+<!-- 20031509 Thng Yu Yang -->

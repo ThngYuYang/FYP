@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <meta name="viewport" content="width=device-width" />
+   <title>Demo - Upload File</title>
+   <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+   <div class="container">
+      <form method="post"
+            action="/Demo/UploadFilePost"
+            enctype="multipart/form-data"
+            >
+
+         <div class="form-group row">
+            <div class="offset-sm-2 col-sm-6">
+               <h2>Demo Upload Picture</h2>
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label class="control-label col-sm-2" for="picture">Picture :</label>
+            <div class="col-sm-6">
+               <input type="file" name="picture" id="picture" class="form-control" />
+            </div>
+         </div>
+
+         @if (ViewData["Picture"] != null)
+         {
+            <div class="form-group row">
+               <div class="offset-sm-2 col-sm-6">
+                  <img src="/photos/@ViewData["Picture"]" />
+               </div>
+            </div>
+         }
+
+         <div class="form-group row">
+            <div class="offset-sm-2 col-sm-6">
+               <input type="submit" value="Upload" class="btn btn-primary" />
+            </div>
+         </div>
+
+         @if (ViewData["Message"] != null)
+         {
+            <div class="form-group row">
+               <div class="offset-sm-2 col-sm-6">
+                  <div class="alert alert-@ViewData["MsgType"]">
+                     <text>@Html.Raw(ViewData["Message"])</text>
+                  </div>
+               </div>
+            </div>
+         }
+
+      </form>
+
+   </div>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Demo Form</title>
+    <style>
+
+	
+	    
+	    div {
+		   margin: 3px;
+		}
+    </style>
+</head>
+<body>
+    <form id="feedback">
+        <div>
+            <label>Name: </label>
+            <input type="text" id="name">
+        </div>
+        <div>
+            <label>E-mail:</label>
+        </div>
+        <div>
+            <label>Department:</label>
+            <select id="department">
+                <option>- select -</option>
+            </select>
+        </div>
+        <div>
+            <label>Gender:</label>
+           <!--
+            <input type="radio" id="gender"> Female
+           -->
+        </div>
+        <div>
+            <label>Equipment:</label>
+            <!--
+            <input type="checkbox" id="Equipment"> Projector
+            -->
+        </div>
+        <div>
+            <label>Comment:</label>
+            <textarea id="comment" rows="5" cols="40"></textarea>
+        </div>
+        <div>
+           
+        </div>
+    </form>
+
+</body>
+</html>

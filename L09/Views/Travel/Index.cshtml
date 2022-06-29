@@ -1,0 +1,40 @@
+﻿@model List<Trip>
+
+@if (TempData["Message"] != null)
+{
+   <div class="alert alert-@TempData["MsgType"]">
+      @TempData["Message"]
+   </div>
+}
+
+<table class="table table-condensed table-hover">
+   <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">City</th>
+      <th scope="col">Period</th>
+      <th scope="col">Days</th>
+      <th scope="col">Spending</th>
+      <th scope="col">Action</th>
+   </tr>
+   @foreach (Trip row in Model)
+   {
+   <tr>
+      <td>@row.Id</td>
+      <td>@row.Title</td>
+      <td>@row.City</td>
+      <td>@String.Format("{0:yyyy MMM}", row.TripDate)</td>
+      <td>@row.Duration Days</td>
+      <td>@String.Format("{0:C}", row.Spending)</td>
+      <td>
+         <a asp-controller="Travel"
+            asp-action="Details"
+            asp-route-id="@row.Id">
+            Details
+         </a>
+      </td>
+   </tr>
+   }
+</table>
+
+

@@ -1,0 +1,56 @@
+﻿@using System.Data
+@model DataTable
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8" />
+   <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+   <title>DO SELECT</title>
+</head>
+<body>
+   <div class="container">
+      <form method="post" action="~/demo/DoSelectPost" >
+
+         <h2>The Bookworm Queries</h2>
+         <div class="row">
+            <label for="sql" class="col-sm-1">SQL :</label>
+            <div class="col-sm-7">
+               <input type="text" name="sql" id="sql" class="form-control" />
+            </div>
+            <div class="col-sm-2">
+               <input type="submit" value="Go" class="btn btn-primary" />
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col-sm-8 col-sm-offset-1">
+               @(ViewData["Message"] != null ? ViewData["Message"] : "")
+               &nbsp;
+            </div>
+         </div>
+
+         @if (Model != null)
+         {
+            <table class='table'>
+               <tr>
+                  @for (int col = 0; col < Model.Columns.Count; col++)
+                  {
+                     <th>@Model.Columns[col]</th>
+                  }
+               </tr>
+
+               @for (int row = 0; row < Model.Rows.Count; row++)
+               {
+                  <tr>
+                     @for (int col = 0; col < Model.Columns.Count; col++)
+                     {
+                        <td>@Model.Rows[row][col]</td>
+                     }
+                  </tr>
+               }
+            </table>
+         }
+      </form>
+   </div>
+</body>
+</html>

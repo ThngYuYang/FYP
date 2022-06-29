@@ -1,0 +1,46 @@
+﻿@model List<Trip>
+
+@if (TempData["Message"] != null)
+{
+   <div class="alert alert-@TempData["MsgType"]">
+      @TempData["Message"]
+   </div>
+}
+
+<h2>My Travel Highlights</h2>
+
+<div class="row">
+   @foreach (Trip row in Model)
+   {
+      <div class="col-sm-4">
+         <div class="card">
+            <a asp-controller="Travel" asp-action="Details" asp-route-id="@row.Id">
+               <img src="/photos/@row.Picture" class="card-img-top" />
+            </a>
+            <div class="card-body">
+               <div class="card-title">
+                  @row.Title (@String.Format("{0:yyyy MMM}", row.TripDate))
+               </div>
+               <div>
+                  <small>
+                     @row.Story.Abbreviate()
+                     <a asp-controller="Travel"
+                        asp-action="Update"
+                        asp-route-id="@row.Id">
+                        Edit
+                     </a> |
+                     <a asp-controller="Travel"
+                        asp-action="Delete"
+                        asp-route-id="@row.Id"
+                        onclick="return confirm('Delete Trip [@row.Title]')">
+                        Delete
+                     </a>
+                  </small>
+               </div>
+            </div>
+         </div>
+      </div>
+   }
+</div>
+
+

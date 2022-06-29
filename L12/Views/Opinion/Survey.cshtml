@@ -1,0 +1,42 @@
+@model Poll;
+
+<h1 style="text-align:center">@Model.Question</h1>
+
+<div class="row">
+   <div class="col-sm-5">
+      <h2 style="text-align:center">
+         <a href="@ViewData["Url"]?choice=A">
+            @Model.ChoiceA
+         </a>
+      </h2>
+
+      @{
+         // TODO: L12 Task 3a - Make the following URL becomes a QR Code
+      }
+       <qrcode>@ViewData["Url"]?choice=A</qrcode>
+
+   </div>
+
+   <div class="col-sm-2"></div>
+
+   <div class="col-sm-5">
+      <h2 style="text-align:center">
+         <a href="@ViewData["Url"]?choice=B">
+            @Model.ChoiceB
+         </a>
+      </h2>
+
+      @{
+         // TODO: L12 Task 3b - Make the following URL becomes a QR Code
+      }
+
+      <qrcode>@ViewData["Url"]?choice=B</qrcode>
+
+
+   </div>
+</div>
+@*Thng Yu Yang 20031509*@
+
+
+
+

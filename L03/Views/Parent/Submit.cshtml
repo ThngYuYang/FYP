@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta name="viewport" content="width=device-width" />
+   <title>Waterloo Primary School</title>
+   <style>
+      html {
+         font-family: sans-serif;
+      }
+
+      #cfm_message {
+         background-color: lightgoldenrodyellow;
+         width: 437px;
+         padding: 10px;
+         text-align: center;
+         margin: auto;
+      }
+
+      #cfm_info {
+         color: blue;
+         font-weight: bold;
+         font-style: italic;
+      }
+   </style>
+
+</head>
+<body>
+    <img style="display:block;margin: auto;" src="~/waterloo.png" />
+    <div id="cfm_message">
+        <h2>Thank you for being a Volunteer</h2>
+        <p>
+            Dear @ViewData["Fullname"],
+        </p>
+        <p>
+            We acknowledged your application.
+        </p>
+        <p>
+            The activity <u>@ViewData["Activity"]</u>
+            which you are volunteering on @ViewData["Days"]
+            will earn you <b>@ViewData["Points"]</b> credit points.
+        </p>
+        <p>
+            You will receive an SMS at <span id="cfm_info">@ViewData["HP"]</span>
+        </p>
+    </div>
+
+</body>
+</html>
+
+

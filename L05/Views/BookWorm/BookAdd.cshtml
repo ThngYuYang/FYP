@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    @await Html.PartialAsync("BwNavBar")
+    <div class="container">
+        <form method="post" action="/BookWorm/BookAddPost">
+
+            <div class="form-group row">
+                <div class="offset-sm-2 col-sm-10">
+                    <h2>Add New Book</h2>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="isbn" class="control-label col-sm-2">ISBN : </label>
+                <div class="col-sm-5">
+                    <input type="text" id="isbn" name="isbn" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="title" class="control-label col-sm-2">Title : </label>
+                <div class="col-sm-5">
+                    <input type="text" id="title" name="title" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="lang" class="control-label col-sm-2">Language : </label>
+                <div class="col-sm-5">
+                    <input type="text" id="lang" name="lang" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="price" class="control-label col-sm-2">Price: </label>
+                <div class="col-sm-5">
+                    <input type="text" id="price" name="price" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="qty" class="control-label col-sm-2">Quantity : </label>
+                <div class="col-sm-5">
+                    <input type="text" id="qty" name="qty" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="bktype" class="control-label col-sm-2">Type : </label>
+                <div class="col-sm-5">
+                    <input type="text" id="bktype" name="bktype" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="pubid" class="control-label col-sm-2">Pub ID : </label>
+                <div class="col-sm-5">
+                    <input type="text" id="pubid" name="pubid" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="offset-2 col-sm-5">
+                    <input type="submit" class="btn btn-primary" value="Add Book" />
+                </div>
+            </div>
+
+            @if (ViewData["Message"] != null)
+            {
+                <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-10">
+                        <div class="alert alert-@ViewData["MsgType"]">
+                            @ViewData["Message"]
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </form>
+    </div>
+</body>
+</html>
+<!-- 20031509 Thng Yu Yang -->

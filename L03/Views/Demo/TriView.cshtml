@@ -1,0 +1,33 @@
+﻿    
+@model L03.Models.Triangle
+
+<html>
+<head>
+   <title>Triange</title>
+</head>
+<body>
+   Side A is @Model.Side1<br />
+   Side B is @Model.Side2<br />
+   Side C is @Model.Side3<br />
+
+   @if (Model.Side1 == Model.Side2 &&
+        Model.Side2 == Model.Side3)
+   {
+      <b>Equilateral</b>
+   }
+   else if (Model.Side1 == Model.Side2 ||
+            Model.Side2 == Model.Side3 ||
+            Model.Side1 == Model.Side3)
+   {
+      <b>Isoceles</b>
+   }
+   else
+   {
+      <b>Normal</b>
+   }
+   Triangle<br />  
+
+   Perimeter is <u>@(Model.Side1 + Model.Side2 + Model.Side3)</u>.
+</body>
+</html>
+

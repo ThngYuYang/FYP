@@ -1,0 +1,120 @@
+@{ 
+   //TODO: L03 TASK 3 Bootstrap this form 
+}
+
+<!DOCTYPE html> 
+
+<html>
+<head>
+   <meta name="viewport" content="width=device-width" />
+   <title>Provide Consultation</title>
+   <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="container">
+      <form action="/Parent/Submit" method="post">
+
+         <!-- Form Group 1 -->
+         <div class="form-group row">
+            <div class="offset-sm-2 col-sm-4">
+               <h2>Be A Parent Volunteer</h2>
+            </div>
+         </div>
+
+         <!-- Form Group 2 -->
+         <div class="form-group row">
+             <label class="control-label col-sm-2">Title :</label> <!-- Label 1 -->
+            <div class="col-sm-4">
+               <div class="form-check form-check-inline">
+                  <input type="radio" name="Title" id="dr" value="Dr" class="form-check-input"/>
+                  <label for="dr" class="form-check-label">Dr</label>
+               </div>
+               <div class="form-check form-check-inline">
+                  <input type="radio" name="Title" id="mr" value="Mr" class="form-check-input"/>
+                  <label for="mr" class="form-check-label">Mr</label>
+               </div>
+               <div class="form-check form-check-inline">
+                  <input type="radio" name="Title" id="ms" value="Ms" class="form-check-input"/>
+                  <label for="md" class="form-check-label">Ms</label>
+               </div>
+            </div>
+         </div>
+
+         <!-- Form Group 3 -->
+         <div class="form-group row">
+            <label for="Name" class="control-label col-sm-2">Name :</label> <!-- Label 2 -->
+            <div class="col-sm-4">
+               <input type="text" name="Name" id="Name" class="form-control"/>
+            </div>
+         </div>
+
+         <!-- Form Group 4 -->
+         <div class="form-group row">
+            <label for="Postal" class="control-label col-sm-2">Postal Code :</label> <!-- Label 3 -->
+            <div class="col-sm-4">
+               <input type="text" name="Postal" id="Postal" class="form-control"/>
+            </div>
+         </div>
+
+         <!-- Form Group 5 -->
+         <div class="form-group row">
+            <label for="Mobile" class="control-label col-sm-2">Mobile :</label> <!-- Label 4 -->
+            <div class="col-sm-4">
+               <input type="text" name="Mobile" id="Mobile" class="form-control"/>
+            </div>
+         </div>
+
+         <!-- Form Group 6 -->
+         <div class="form-group row">
+            <label for="Activity" class="control-label col-sm-2">Activity :</label> <!-- Label 5 -->
+            <div class="col-sm-4">
+               <select name="Activity" id="Activity" class="form-control">
+                  <option value="">-- SELECT --</option>
+                  <option value="Story Telling">Story Telling</option>
+                  <option value="Traffic Control">Traffic Control</option>
+                  <option value="Music Appreciation">Music Appreciation</option>
+                  <option value="Art and Craft">Art and Craft</option>
+               </select>
+            </div>
+         </div>
+         <!-- Form Group 7 -->
+         <div class="form-group row">
+            <label class="control-label col-sm-2">Days :</label> <!-- Label 6 -->
+            <div class="col-sm-4">
+               <div class="form-check form-check-inline">
+                  <input type="checkbox" name="Mon" id="Mon" value="Mon" class="form-check-input"/>
+                  <label for="Mon" class="form-check-label">Monday</label>
+               </div>
+               <div class="form-check form-check-inline">
+                  <input type="checkbox" name="Wed" id="Wed" value="Wed" class="form-check-input"/>
+                  <label for="Wed" class="form-check-label">Wednesday</label>
+               </div>
+               <div class="form-check form-check-inline">
+                  <input type="checkbox" name="Fri" id="Fri" value="Fri" class="form-check-input"/>
+                  <label for="Fri" class="form-check-label">Friday</label>
+               </div>
+            </div>
+         </div>
+
+         <!-- Form Group 8 -->
+         <div class="form-group row">
+            <div class="offset-sm-2 col-sm-4">
+               <input type="submit" class="btn btn-primary" value="Submit" />
+            </div>
+         </div>
+
+         @if (ViewData["Message"] != null)
+         {
+            <!-- Form Group 9 -->
+            <div class="form-group row">
+               <div>
+                  @ViewData["Message"]
+               </div>
+            </div>
+         }
+
+         </form>
+	</div>
+</body>
+</html>
+<!-- 20031509 Thng Yu Yang -->

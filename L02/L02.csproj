@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Demo\SayHello1.cshtml" />
+    <Content Remove="Views\Demo\SayHello2.cshtml" />
+    <Content Remove="Views\Demo\SayHello3.cshtml" />
+    <Content Remove="Views\Demo\SayHello4.cshtml" />
+    <Content Remove="Views\Demo\SayHello5.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Demo\SayHello5.cshtml" />
+    <None Include="Views\Demo\SayHello4.cshtml" />
+    <None Include="Views\Demo\SayHello3.cshtml" />
+    <None Include="Views\Demo\SayHello2.cshtml" />
+    <None Include="Views\Demo\SayHello1.cshtml" />
+    <None Include="Views\Parent\Volunteer.cshtml" />
+  </ItemGroup>
+
+</Project>

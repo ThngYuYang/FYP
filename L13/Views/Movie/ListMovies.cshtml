@@ -1,0 +1,124 @@
+﻿@model List<Movie>
+
+@section MoreScripts {
+   <link href="~/lib/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+   <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+
+   @{
+      // TODO: L13 Task 04 - Use JQuery DataTable to make the movie table responsive
+   }
+
+     <script>
+        $(document).ready(function () {
+            $('#jsMovieTable').DataTable({
+                paging: true,
+                ordering: true,
+                searching: true,
+                info: true,
+                lengthMenu: [[6, 10, 20, -1], [6, 10, 20, "All"]]
+            });
+        });
+    </script>
+
+}
+
+<h2>Movies</h2>
+
+@if (TempData["Message"] != null)
+{
+   <div class="alert alert-@TempData["MsgType"]">
+      @TempData["Message"]
+   </div>
+}
+
+<table id="jsMovieTable" class="table">
+   <thead>
+      <tr>
+         <th scope="col">ID</th>
+         <th scope="col">Title</th>
+         <th scope="col">Release Date</th>
+         <th scope="col">Price</th>
+         <th scope="col">Duration</th>
+         <th scope="col">Rating</th>
+         <th scope="col">Genre</th>
+
+         @{
+            // TODO: L13 Task 05a - Show "Operation" column if user is MANAGER
+         }
+         @if (User.IsInRole("manager"))
+         {
+              <th scope="col">Operation</th>
+         }
+      </tr>
+   </thead>
+   <tbody>
+      @foreach (Movie mv in Model)
+      {
+      <tr>
+         <td>@mv.MovieId</td>
+         <td>@mv.Title</td>
+
+         @{
+            // TODO: L13 Task 02 - Show "Released" for past dates and month / year for future dates
+         }
+
+         @if (mv.ReleaseDate < DateTime.Today)
+         {
+             <td><text>Released</text></td>
+         }
+         else
+         {
+            <td>@String.Format("{0:MM-yyyy}", mv.ReleaseDate)</td>
+         }
+
+
+         @{
+            // TODO: L13 Task 03 - Highlight Prices in Red or Green
+         }
+         <td>
+             @if (mv.Price > 35)
+             {
+                 <span style="color:red">
+                     <b>@String.Format("{0:c}", mv.Price)</b>
+                 </span>
+              }
+             else if (mv.Price < 25)
+             {
+                 <span style="color:green">
+                     <b>@String.Format("{0:c}", mv.Price)</b>
+                 </span>
+             }
+             else
+             {
+                 @String.Format("{0:c}", mv.Price)
+             }
+         </td>
+         <td>@mv.Duration</td>
+         <td>@mv.Rating</td>
+         <td>@mv.GenreName</td>
+
+         @{
+            // TODO: L13 Task 05b - Show "Edit | Delete" if user is MANAGER   
+         }
+         @if (User.IsInRole("manager"))
+         {
+             <td>
+                 <a asp-controller="Movie" asp-action="EditMovie"
+                    asp-route-id="@mv.MovieId">Edit</a>
+                 |
+                 <a asp-controller="Movie" asp-action="DeleteMovie"
+                    asp-route-id="@mv.MovieId"
+                    onclick="return confirm('Are you sure you want to delete @mv.Title?')">
+                     Delete
+                 </a>
+             </td>
+             }
+
+      </tr>
+      }
+   </tbody>
+</table>
+<!--20031509 Thng Yu Yang-->
+
+
+

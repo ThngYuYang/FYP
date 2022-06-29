@@ -1,0 +1,27 @@
+﻿    @model DataRowCollection
+
+<h2>Rarity Values</h2>
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-@TempData["MsgType"]">@TempData["Message"]</div>
+}
+<table class="table table-striped">
+    <tr>
+        <th>Rarity Value</th>
+        <th>Action</th>
+    </tr>
+    @foreach (DataRow row in Model)
+    {
+        <tr>
+            <td hidden="hidden">@row["Id"]</td>
+            <td>@row["RarityValue"]</td>
+            <td>
+                <a asp-controller="Rarity" asp-action="Update" asp-route-id="@row["Id"]">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+
+

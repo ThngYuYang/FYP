@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Volunteer</title>
+    <link href="~/styles/waterloo.css" rel="stylesheet" />
+</head>
+<body>
+    <form action="/Parent/Submit/" method="post">
+
+        <h2>Be a Parent Volunteer</h2>
+
+        <div>
+            <label class="control-label">Title :</label>
+            <label for="dr">
+                <input type="radio" name="Title" id="dr" value="Dr" />Dr
+            </label>
+            <label for="mr">
+                <input type="radio" name="Title" id="mr" value="Mr" />Mr
+            </label>
+            <label for="ms">
+                <input type="radio" name="Title" id="ms" value="Ms" />Ms
+            </label>
+        </div>
+
+        <div>
+            <label class="control-label" for="name">Name :</label>
+            <input type="text" name="Name" id="name" class="form-control" />
+        </div>
+
+        <div>
+            <label class="control-label" for="postal">Postal Code :</label>
+            <input type="text" name="Postal" id="postal" class="form-control" />
+        </div>
+
+        <div>
+            <label class="control-label" for="mobile">Mobile :</label>
+            <input type="text" name="Mobile" id="mobile" class="form-control" />
+        </div>
+
+        <div>
+            <label class="control-label" for="activity">Activity :</label>
+            <select name="Activity" id="activity" class="form-control">
+                <option value="">-- SELECT --</option>
+                <option value="Story Telling">Story Telling</option>
+                <option value="Traffic Control">Traffic Control</option>
+                <option value="Music Appreciation">Music Appreciation</option>
+                <option value="Art and Craft">Art and Craft</option>
+            </select>
+        </div>
+
+        <div>
+            <label class="control-label" for="StartDate">Days :</label>
+            <label for="mon">
+                <input type="checkbox" name="Mon" id="mon" value="Mon" />Monday
+            </label>
+            <label for="wed">
+                <input type="checkbox" name="Wed" id="wed" value="Wed" />Wednesday
+            </label>
+            <label for="fri">
+                <input type="checkbox" name="Fri" id="fri" value="Fri" />Friday
+            </label>
+        </div>
+
+        <input type="submit" id="btn" value="Submit" />
+
+        <div class="message">
+
+        </div>
+
+    </form>
+</body>
+</html>
+<!-- 20031509 Thng Yu Yang -->

@@ -1,0 +1,47 @@
+﻿@{
+   Layout = "_Layout";
+   DataTable dt = ViewData["Table"] as DataTable;
+}
+<h2>Demo SQL Injection</h2>
+<form method="post" >
+   <div class="row">
+      <div class="col-sm-6">
+         <table class='table table-condensed table-bordered'>
+            <tr>
+               @for (int col = 0; col < dt.Columns.Count; col++)
+               {
+                  <th>@dt.Columns[col]</th>
+               }
+            </tr>
+            @for (int row = 0; row < dt.Rows.Count; row++)
+            {
+               <tr>
+                  @for (int col = 0; col < dt.Columns.Count; col++)
+                  {
+                     <td>@dt.Rows[row][col]</td>
+                  }
+               </tr>
+            }
+         </table>
+      </div>
+   </div>
+   <div class="form-group row">
+      <label class="col-sm-1" for="fruit">Fruit: </label>
+      <div class="col-sm-5">
+         <input type="text" class="form-control" name="fruit" />
+      </div>
+   </div>
+   <div class="form-group row">
+      <div class="offset-sm-1 col-sm-5">
+         <input type="submit" class="btn btn-danger" value="Unsafe"
+                formaction="Insecure" formmethod="post" />
+         <input type="submit" class="btn btn-primary" value="Safe A"
+                formaction="Secure" formmethod="post" />
+         <input type="submit" class="btn btn-info" value="Safe B"
+                formaction="Secure2" formmethod="post" />
+      </div>
+   </div>
+   <p style="font-family: Courier New, Courier, monospace">
+      @ViewData["SQL"]
+   </p>
+</form>

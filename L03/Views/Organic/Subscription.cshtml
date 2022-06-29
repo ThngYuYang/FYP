@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <title>Organic Fruits - Subscription</title>
+   <!-- Include Bootstrap and jQuery files for Responsive UI/UX -->
+   <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+   <div class="container">
+      <form method="post" action="/Organic/Confirmation">
+
+         <div class="form-group row">
+            <div class="offset-sm-3 col-sm-6">
+               <h2>Newsletter Subscription</h2>
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label for="name" class="control-label col-sm-3">Your name : </label>
+            <div class="col-sm-6">
+               <input type="text" class="form-control" id="name" name="Name"  />
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label for="email" class="control-label col-sm-3">Your email address : </label>
+            <div class="col-sm-6">
+               <input type="text" class="form-control" id="email" name="Email"  />
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label class="control-label col-sm-3">Your gender : </label>
+            <div class="col-sm-6">
+               <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" 
+                         id="male" name="Gender" value="Male" />
+                  <label class="form-check-label" for="male">Male</label>
+               </div>
+               <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" 
+                         id="female" name="Gender" value="Female" />
+                  <label class="form-check-label" for="female">Female</label>
+               </div>
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label class="control-label col-sm-3">Your interest :</label>
+            <div class="col-sm-6">
+               <div class="form-check form-check-inline">
+                  <input type="checkbox" class="form-check-input" 
+                         id="recipe" name="Recipe" value="Recipe" />
+                  <label class="form-check-label" for="recipe">Recipes</label>
+               </div>
+               <div class="form-check form-check-inline">
+                  <input type="checkbox" class="form-check-input" 
+                         id="news" name="News" value="News" />
+                  <label class="form-check-label" for="news">News</label>
+               </div>
+               <div class="form-check form-check-inline">
+                  <input type="checkbox" class="form-check-input" 
+                         id="offers" name="Offers" value="Offers" />
+                  <label class="form-check-label" for="offers">Offers</label>
+               </div>
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label for="refer" class="control-label col-sm-3">Hear about us ? </label>
+            <div class="col-sm-6">
+               <select id="refer" name="Refer" class="form-control">
+                  <option value="">-- Select One --</option>
+                  <option value="Friend">Friend</option>
+                  <option value="Magazine">Magazine</option>
+                  <option value="Newspaper">Newspaper</option>
+                  <option value="Radio">Radio</option>
+               </select>
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label for="comments" class="control-label col-sm-3">Additional comments ? </label>
+            <div class="col-sm-6">
+               <textarea class="form-control" id="comments" name="Comments" 
+                         cols="35" rows="4" ></textarea>
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <div class="offset-sm-3 col-sm-6 ">
+               @if (ViewData["Message"] != null)
+               {
+                  <div class="alert alert-warning">
+                     @ViewData["Message"]
+                  </div>
+               }
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <div class="offset-sm-3 col-sm-6">
+               <input type="submit" class="btn btn-primary" value="Subscribe" />
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <div class="offset-sm-3 col-sm-6">
+               <a href="/Organic/Index">Back to Main</a>
+            </div>
+         </div>
+
+      </form>
+   </div>
+</body>
+</html>
+

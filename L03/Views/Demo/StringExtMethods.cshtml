@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <meta name="viewport" content="width=device-width" />
+   <title>L03 Demo</title>
+</head>
+<body>
+
+   <h1>String Extension Methods</h1>
+   <form method="post">
+      <label for="line">Line : </label>
+      <input type="text" name="Line" id="line" />
+      <input type="submit" value="Stretch"    formaction="/Demo/Stretch"/>
+      <input type="submit" value="UpperLower" formaction="/Demo/UpperLower"/>
+   </form>
+   @if (ViewData["Result"] != null)
+   {
+      <hr />
+      @ViewData["Result"]
+   }
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿@model DataRowCollection
+<h2>Performances </h2>
+
+@if (TempData["Message"] != null)
+{
+   <div class="alert alert-@TempData["MsgType"]">
+      @TempData["Message"]
+   </div>
+}
+
+<div>
+   <table id="tblPerform" class="table table-condensed table-hover">
+      <thead>
+         <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Date/Time</th>
+            <th>Duration</th>
+            <th>Price</th>
+            <th>Chamber</th>
+         </tr>
+      </thead>
+
+      @foreach (DataRow row in Model)
+      {
+         <tr>
+            <td>@row["Title"]</td>
+            <td>@row["Artist"]</td>
+            <td>@String.Format("{0:yyyy-MM-dd HH:mm}", row["PerformDT"])</td>
+            <td>@row["Duration"] hrs</td>
+            <td>@String.Format("{0:c}", row["Price"])</td>
+            <td>@row["Chamber"]</td>
+         </tr>
+      }
+
+   </table>
+
+</div>
+

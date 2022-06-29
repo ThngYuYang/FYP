@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Bootstrap Exercise</title>
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <!--TODO: L05 Task 1 Style the Web Page using Bootstrap-->
+    <div class="container">
+        <form method="post" action="/Controller/Action">
+            <div class="form-group row">
+                <div class="offset-sm-2 col-sm-4">
+                    <h2>Web Page Title</h2>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="fielda" class="control-label col-2">Field A : </label>
+                <div class="col-sm-4">
+                    <input type="text" id="fielda" name="fielda" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="fieldb" class="control-label col-2">Field B : </label>
+                <div class="col-sm-4">
+                    <input type="text" id="fieldb" name="fieldb" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="control-label col-sm-2">Field C : </label>
+                <div class="col-sm-4">
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" id="rb1" name="fieldc" value="Value1" />
+                        <label class="form-check-label" for="male">
+                            Radio 1
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" id="rb2" name="fieldc" value="Value2" />
+                        <label class="form-check-label" for="female">
+                            Radio 2
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="control-label col-sm-2">Field D :</label>
+                <div class="col-sm-4">
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="opt1" name="fieldd" value="Option1" />
+                        <label class="form-check-label" for="opt1">
+                            Option 1
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="opt2" name="fieldd" value="Option2" />
+                        <label class="form-check-label" for="opt2">
+                            Option 2
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="opt3" name="fieldd" value="Option3" />
+                        <label class="form-check-label" for="opt3">
+                            Option 3
+                        </label>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="control-label col-sm2" for="fielde">Field E : </label>
+                <div class="col-sm-4">
+                    <select id="fielde" name="fielde" class="form-control">
+                        <option value="">-- Select One --</option>
+                        <option value="select1">Select A</option>
+                        <option value="select2">Select B</option>
+                        <option value="select3">Select C</option>
+                        <option value="select4">Select D</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="fieldf" class="control-label col-sm-2">Field F : </label>
+                <div class="col-sm-4">
+                    <textarea class="form-control" id="fieldf" name="fieldf" cols="35" rows="4"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="offset-sm-2 col-sm-4">
+                    <input type="submit" class="btn btn-primary" value="Button A" />
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
+<!-- 20031509 Thng Yu Yang -->

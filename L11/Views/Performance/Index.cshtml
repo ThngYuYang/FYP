@@ -1,0 +1,100 @@
+﻿@{
+   // TODO: L11 Task 5b - Include DataTables CSS and JS, write code to make the table searchable and sortable
+}
+@section MoreScripts {
+   <link href="~/lib/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+   <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+
+   <script>
+      $(document).ready(function () {
+         $('#JSIndexTable').DataTable({
+            ordering: true,
+            paging: false,
+            searching: true,
+            info: false
+         });
+      });
+   </script>
+
+}
+
+@model DataRowCollection
+<h2>Performances </h2>
+
+@if (TempData["Message"] != null)
+{
+   <div class="alert alert-@TempData["MsgType"]">
+      @TempData["Message"]
+   </div>
+}
+
+<div>
+
+   @{
+      // TODO: L11 Task 5a - Give the Table an ID to be used with DataTables
+   }
+   <table id="JSIndexTable" class="table">
+      <thead>
+         <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Date/Time</th>
+            <th>Duration</th>
+            <th>Price</th>
+            <th>Chamber</th>
+            @if (User.IsInRole("manager"))
+            {
+               <th>Action</th>
+            }
+         </tr>
+      </thead>
+
+      <tbody>
+         @foreach (DataRow row in Model)
+         {
+            <tr>
+               <td>@row["Title"]</td>
+               <td>@row["Artist"]</td>
+               <td>@String.Format("{0:yyyy-MM-dd HH:mm}", row["PerformDT"])</td>
+               <td>@row["Duration"] hrs</td>
+               <td>@String.Format("{0:c}", row["Price"])</td>
+               <td>@row["Chamber"]</td>
+               @if (User.IsInRole("manager"))
+               {
+                  <td>
+                     <a asp-controller="Performance"
+                        asp-action="Update"
+                        asp-route-id="@row["Pid"]">
+                        Update
+                     </a> |
+                     <a asp-controller="Performance"
+                        asp-action="Delete"
+                        asp-route-id="@row["Pid"]"
+                        onclick="return confirm('Delete Performance <@row["Title"]>')">
+                        Delete
+                     </a>
+                  </td>
+               }
+            </tr>
+         }
+      </tbody>
+
+      <tfoot>
+         <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Date/Time</th>
+            <th>Duration</th>
+            <th>Price</th>
+            <th>Chamber</th>
+            @if (User.IsInRole("manager"))
+            {
+               <th>Action</th>
+            }
+         </tr>
+      </tfoot>
+
+
+   </table>
+</div>
+@*20031509 Thng Yu Yang *@

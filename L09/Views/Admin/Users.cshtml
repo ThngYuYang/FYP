@@ -1,0 +1,56 @@
+﻿@model List<TravelUser>
+
+@if (TempData["Message"] != null)
+{
+   <div class="alert alert-@TempData["MsgType"]">
+      @TempData["Message"]
+   </div>
+}
+<table class="table table-condensed table-hover">
+   <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Date of Birth</th>
+      <th scope="col">Role</th>
+      <th scope="col">Last Login</th>
+      <th scope="col">&nbsp;</th>
+   </tr>
+   @foreach (TravelUser user in Model)
+   {
+      <tr>
+         <td>@user.UserId</td>
+         <td>@user.FullName</td>
+         <td>@user.Email</td>
+         <td>@String.Format("{0:yyyy MMM}", user.Dob)</td>
+          @{
+               // TODO: L09 Task 3 - Use Razor to check UserRole and display "Member" or "Administrator"
+               if (user.UserRole.Equals("user"))
+                {
+                   <td>Member</td>
+                }
+                else
+                {
+                   <td>Administrator</td>
+                }
+            }
+
+         <td>@String.Format("{0:yyyy-MM-dd hh:mm:ss}", user.LastLogin)</td>
+         <td>
+            <a asp-controller="Admin"
+               asp-action="Delete"
+               asp-route-id="@user.UserId"
+               onclick="return confirm('Delete User [@user.FullName]')">Delete</a>
+         </td>
+      </tr>
+   }
+</table>
+    <div class="form-group row">
+        <div class="offset-sm-4 col-sm-6">
+            <img src="~/images/www.jpg" />
+            <footer>
+                &copy;<em id="date"></em>Where We Were
+            </footer>
+        </div>
+    </div>
+@*Thng Yu Yang 20031509*@

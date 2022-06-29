@@ -1,0 +1,96 @@
+@{
+   Layout = "_Layout";
+}
+
+@section MoreScripts {
+   <script src="~/lib/moment/moment.min.js"></script>
+   <link href="~/lib/dtpicker/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+   <script src="~/lib/dtpicker/js/tempusdominus-bootstrap-4.min.js"></script>
+
+   <script language="javascript">
+      $(document).ready(function () {
+         // DateA
+         $('#JSDateA')
+            .datetimepicker({ format: 'YYYY-MM-DD' });
+
+         // DateTimeB
+         $('#JSDateTimeB')
+            .datetimepicker({ format: 'YYYY-MM-DD HH:mm' });
+
+         // DateTimeC
+         $('#JSDateTimeC')
+            .datetimepicker({
+               format: 'YYYY-MM-DD HH:mm',
+               defaultDate: '2018-12-25', sideBySide: true
+            });
+      });
+   </script>
+}
+
+<form asp-controller="Demo"
+      asp-action="DatePicker"
+      method="post">
+
+   <div class="form-group row">
+      <div class="offset-sm-2 col-sm-4">
+         <h2>Demo Date Picker</h2>
+      </div>
+   </div>
+
+   <div class="form-group row">
+      <label class="control-label col-sm-2" for="DateA">Date Only :</label>
+      <div class="col-sm-4">
+         <div class="input-group date" id="JSDateA" data-target-input="nearest">
+            <input type="text" name="DateA" class="form-control" />
+            <div class="input-group-append" 
+                 data-target="#JSDateA" data-toggle="datetimepicker">
+               <div class="input-group-text"><i class="fas fa-calendar"></i></div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="form-group row">
+      <label class="control-label col-sm-2" for="DateTimeB">Date and Time :</label>
+      <div class="col-sm-4">
+         <div class="input-group date" id="JSDateTimeB" data-target-input="nearest">
+            <input type="text" name="DateTimeB" class="form-control" />
+            <div class="input-group-append" 
+                 data-target="#JSDateTimeB" data-toggle="datetimepicker">
+               <div class="input-group-text"><i class="fas fa-calendar"></i></div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="form-group row">
+      <label class="control-label col-sm-2" for="DateTimeC">Side by Side :</label>
+      <div class="col-sm-4">
+         <div class="input-group date" id="JSDateTimeC" data-target-input="nearest">
+            <input type="text" name="DateTimeC" class="form-control" />
+            <div class="input-group-append" 
+                 data-target="#JSDateTimeC" data-toggle="datetimepicker">
+               <div class="input-group-text"><i class="fas fa-calendar"></i></div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="form-group row">
+      <div class="offset-sm-2 col-sm-6">
+         <input type="submit" value="Submit" class="btn btn-primary" />
+      </div>
+   </div>
+
+   @if (ViewData["Message"] != null)
+   {
+      <div class="form-group row">
+         <div class="offset-sm-2 col-sm-6">
+            <div class="alert alert-@ViewData["MsgType"]">
+               @ViewData["Message"]
+            </div>
+         </div>
+      </div>
+   }
+
+</form>

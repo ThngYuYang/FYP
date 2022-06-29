@@ -1,0 +1,63 @@
+﻿@model Provider
+@{
+   ViewData["Title"] = "ProviderEdit";
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <title>Be Social - Provider Edit</title>
+   <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+   <script src="~/lib/jquery/jquery.min.js"></script>
+   <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+   @await Html.PartialAsync("SocNavBar")
+
+   <div class="container">
+      <form method="post"
+            action="/Provider/ProviderEditPost">
+
+         <div class="form-group row">
+            <div class="offset-sm-3 col-sm-9">
+               <h2>Edit Provider</h2>
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label class="control-label col-sm-3" for="pid">Provider ID :</label>
+            <div class="col-sm-5">
+               <input type="text" id="pid" name="provId" class="form-control"
+                      value="@Model.ProviderId" readonly />
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label class="control-label col-sm-3" for="pname">Name :</label>
+            <div class="col-sm-8">
+               <input type="text" id="pname" name="provName" class="form-control"
+                      value="@Model.Name" />
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <div class="offset-sm-3 col-sm-8">
+               <input type="submit" class="btn btn-light" value="Update" />
+            </div>
+         </div>
+
+
+         @if (ViewData["Message"] != null)
+         {
+            <div class="form-group row">
+               <div class="offset-sm-3 col-sm-6">
+                  <div class="alert alert-@ViewData["MsgType"]">
+                     @ViewData["Message"]
+                  </div>
+               </div>
+            </div>
+         }
+
+      </form>
+   </div>
+</body>
+</html>

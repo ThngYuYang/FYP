@@ -1,0 +1,115 @@
+﻿@model Subscriber
+@{
+   ViewData["Title"] = "SubscriberEdit";
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <title>Be Social - Subscriber Edit</title>
+   <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+   <script src="~/lib/jquery/jquery.min.js"></script>
+   <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+   @await Html.PartialAsync("SocNavBar")
+
+   <div class="container">
+      <form method="post"
+            action="/Subscriber/SubscriberEditPost">
+
+         <div class="form-group row">
+            <div class="offset-sm-3 col-sm-9">
+               <h2>Edit Subscriber</h2>
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label for="sid" class="control-label col-sm-3">Subscriber ID :</label>
+            <div class="col-sm-5">
+               <input type="text" id="sid" name="subId" class="form-control"
+                      value="@Model.SubscriberId" readonly />
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label class="control-label col-sm-3" for="username">Username :</label>
+            <div class="col-sm-8">
+               <input type="text" id="username" name="uname" class="form-control"
+                      value="@Model.UserName" />
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label class="control-label col-sm-3" for="firstname">First Name:</label>
+            <div class="col-sm-8">
+               <input type="text" id="firstname" name="name1" class="form-control"
+                      value="@Model.FirstName" />
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label class="control-label col-sm-3" for="familyname">Family Name:</label>
+            <div class="col-sm-8">
+               <input type="text" id="familyname " name="name2" class="form-control"
+                      value="@Model.FamilyName" />
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label class="control-label col-sm-3" for="dob">Date of Birth:</label>
+            <div class="col-sm-3">
+               <input type="text" id="dob " name="datebirth" class="form-control"
+                      placeholder="YYYY-MM-DD"
+                      value="@String.Format("{0:yyyy-MM-dd}",Model.DateOfBirth)" />
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <label class="control-label col-sm-3">Settings :</label>
+            <div class="col-sm-8">
+               <div class="form-check form-check-inline">
+                  <input type="checkbox" class="form-check-input" id="pubprof" name="publicprofile"
+                         value="Yes" checked="@Model.PublicProfile" />
+                  <label class="form-check-label" for="pubprof">
+                     Public Profile
+                  </label>
+               </div>
+               <div class="form-check form-check-inline">
+                  <input type="checkbox" class="form-check-input" id="autofriend" name="autofriends"
+                         value="Yes" checked="@Model.AutoAcceptFriends" />
+                  <label class="form-check-label" for="autofriend">
+                     Auto-accept Friends
+                  </label>
+               </div>
+               <div class="form-check form-check-inline">
+                  <input type="checkbox" class="form-check-input" id="bposts" name="broadcast"
+                         value="Yes" checked="@Model.BroadcastPosts" />
+                  <label class="form-check-label" for="bposts">
+                     Broadcast Posts
+                  </label>
+               </div>
+            </div>
+         </div>
+
+         <div class="form-group row">
+            <div class="offset-sm-3 col-sm-8">
+               <input type="submit" class="btn btn-light" value="Update" />
+            </div>
+         </div>
+
+
+         @if (ViewData["Message"] != null)
+         {
+            <div class="form-group row">
+               <div class="offset-sm-3 col-sm-6">
+                  <div class="alert alert-@ViewData["MsgType"]">
+                     <text>@ViewData["Message"]</text>
+                  </div>
+               </div>
+            </div>
+         }
+
+      </form>
+   </div>
+</body>
+</html>
