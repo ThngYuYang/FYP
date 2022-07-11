@@ -1,5 +1,5 @@
-
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>FYP</groupId>
   <artifactId>FYP</artifactId>
@@ -7,6 +7,15 @@
   
   <name>pom.xml</name>
   <description>FYP pom file</description>
+  
+  <distributionManagement>
+       <repository>
+         <id>internal.repo</id>
+         <name>Internal repo</name>
+         <url>file:///var/lib/jenkins/deploy/</url>
+       </repository>
+   </distributionManagement>
+   
   <build>
     <sourceDirectory>src</sourceDirectory>
         <pluginManagement>
