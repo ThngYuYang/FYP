@@ -281,6 +281,12 @@
         </dependency>
     </dependencies>
 
+	<modules>
+		<module>com.microsoft.java.debug.core</module>
+		<module>com.microsoft.java.debug.plugin</module>
+		<module>com.microsoft.java.debug.repositories</module>
+	</modules>
+
     <!-- Maven plugin versions are mentioned in order to guarantee the build reproducibility in the long term -->
     <build>
         <defaultGoal>install</defaultGoal>
