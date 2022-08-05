@@ -46,15 +46,15 @@ public class TestScorePage extends Application{
 		DBUtil.init(jdbcURL, dbUsername, dbPassword);
 
 		vbPane.setSpacing(10);
-		vbPane.setPadding(new Insets(10,10,10,10));
+		vbPane.setPadding(new Insets(20,20,20,20));
 		vbPane.setAlignment(Pos.CENTER);
 		vbPane.getChildren().addAll(lbWelcome,btAdd,btView);
 
 		Scene mainScene = new Scene(vbPane);
 		primaryStage.setScene(mainScene);
 		primaryStage.setTitle("Test Score Application");
-		primaryStage.setWidth(600);
-		primaryStage.setHeight(800);
+		primaryStage.setWidth(300);
+		primaryStage.setHeight(400);
 
 		primaryStage.show();
 		

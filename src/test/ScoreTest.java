@@ -72,14 +72,14 @@ public class ScoreTest {
 		// check if student score can be added
 		ScoreList.add(st1);
 		
-		assertEquals("Check that ScoreList's size is 2", 2, ScoreList.size());
-		assertSame("Check the correct student score is added", st1, ScoreList.get(1));
+		assertEquals("Check that ScoreList's size is 2", 7, ScoreList.size());
+		assertSame("Check the correct student score is added", st1, ScoreList.get(6));
 		
 		// check if a second student score can be added
 		ScoreList.add(st2);
 
-		assertEquals("Check that ScoreList's size is 3", 3, ScoreList.size());
-		assertSame("Check the correct student score is added", st2, ScoreList.get(2));
+		assertEquals("Check that ScoreList's size is 3", 8, ScoreList.size());
+		assertSame("Check the correct student score is added", st2, ScoreList.get(7));
 		
 	}
 

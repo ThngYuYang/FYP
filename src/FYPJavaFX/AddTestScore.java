@@ -60,8 +60,8 @@ public class AddTestScore extends Application{
 		Scene mainScene = new Scene(vbPane);
 		primaryStage.setScene(mainScene);
 		primaryStage.setTitle("Add Test Score");
-		primaryStage.setWidth(600);
-		primaryStage.setHeight(800);
+		primaryStage.setWidth(300);
+		primaryStage.setHeight(500);
 
 		primaryStage.show();
 		
